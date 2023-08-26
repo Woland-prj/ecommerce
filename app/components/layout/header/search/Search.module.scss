@@ -1,0 +1,12 @@
+.search {
+	@apply relative w-2/6 flex items-center;
+
+	&::before {
+		content: '';
+		@apply bg-vinous w-[130%] pt-[130%] rounded-full absolute top-[-280%] left-[-15%];
+	}
+
+	> input {
+		@apply relative w-full h-14 bg-transparent uppercase border-b-2 border-gray text-gray;
+	}
+}

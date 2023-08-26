@@ -1,0 +1,23 @@
+.menu {
+	@apply flex items-center gap-12;
+
+	> nav {
+		> ul {
+			@apply flex items-center gap-8;
+			> li {
+				> a {
+					@apply relative tracking-widest uppercase font-semibold;
+
+					&::after {
+						content: '';
+						@apply w-0 absolute h-0.5 left-0 -bottom-1.5 bg-black transition-all duration-300;
+					}
+
+					&:hover::after {
+						@apply w-full;
+					}
+				}
+			}
+		}
+	}
+}
