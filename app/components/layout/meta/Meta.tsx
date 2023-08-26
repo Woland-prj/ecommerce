@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { FC, PropsWithChildren } from 'react'
 import { ISeo } from './meta.interface'
 import { useRouter } from 'next/router'
+// import {} from './meta.data'
 
 const Meta: FC<PropsWithChildren<ISeo>> = ({
 	title,

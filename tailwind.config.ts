@@ -2,14 +2,12 @@ import type { Config } from 'tailwindcss'
 import colors from 'tailwindcss/colors'
 
 const constants = {
-	red: '#F23C3D',
-	vinous: '#9B2D30',
-	green: '#008D64',
-	'light-green': '#E6F2EF',
-	'dark-green': '#006044',
-	'light-gray': '#D3D3D3',
-	gray: '#BABABA',
-	beige: '#A49B8F',
+	purple: '#5F0F40',
+	carmine: '#9A031E',
+	yellow: '#FB8B24',
+	orange: '#E36414',
+	green: '#0F4C5C',
+	gray: '#E3E3E3',
 	black: '#222222',
 	white: '#FFFFFF'
 }

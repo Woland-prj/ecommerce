@@ -1,12 +1,32 @@
 .search {
-	@apply relative w-2/6 flex items-center;
+	@apply relative w-2/6 flex items-center text-gray;
 
 	&::before {
 		content: '';
-		@apply bg-vinous w-[130%] pt-[130%] rounded-full absolute top-[-280%] left-[-15%];
+		@apply bg-carmine w-[130%] pt-[130%] rounded-full absolute top-[-280%] left-[-15%];
+	}
+
+	> label {
+		@apply absolute tracking-widest uppercase scale-100 top-10 transition-all duration-300;
 	}
 
 	> input {
-		@apply relative w-full h-14 bg-transparent uppercase border-b-2 border-gray text-gray;
+		@apply z-10 absolute w-full h-12 bg-transparent border-b-2 outline-none transition-all duration-300;
+
+		&:focus {
+			@apply text-yellow;
+		}
+
+		&:not(:placeholder-shown, :focus) {
+			@apply text-gray;
+		}
+
+		&:focus ~ label {
+			@apply text-xs text-yellow top-3;
+		}
+
+		&:not(:placeholder-shown, :focus) ~ label {
+			@apply text-xs text-gray top-3;
+		}
 	}
 }

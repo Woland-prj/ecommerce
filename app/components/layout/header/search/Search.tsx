@@ -7,12 +7,13 @@ const Search: FC = () => {
 	return (
 		<div className={styles.search}>
 			<input
-				className={styles.search}
 				onChange={e => setSearchTerm(e.target.value)}
 				value={searchTerm}
-				type='text'
-				placeholder='SEARCH'
+				type='search'
+				name='search'
+				placeholder=' '
 			/>
+			<label htmlFor='search'>search</label>
 		</div>
 	)
 }
