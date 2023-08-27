@@ -10,7 +10,7 @@
 
 					&::after {
 						content: '';
-						@apply w-0 absolute h-0.5 left-0 -bottom-1.5 bg-black transition-all duration-300;
+						@apply w-0 absolute h-0.5 left-0 -bottom-1.5 bg-blue transition-all duration-300;
 					}
 
 					&:hover::after {

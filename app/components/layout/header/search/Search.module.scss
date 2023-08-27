@@ -1,5 +1,5 @@
 .search {
-	@apply relative w-2/6 flex items-center text-gray;
+	@apply relative w-2/6 flex items-center text-blue;
 
 	&::before {
 		content: '';
@@ -14,19 +14,19 @@
 		@apply z-10 absolute w-full h-12 bg-transparent border-b-2 outline-none transition-all duration-300;
 
 		&:focus {
-			@apply text-yellow;
+			@apply text-beige;
 		}
 
 		&:not(:placeholder-shown, :focus) {
-			@apply text-gray;
+			@apply text-blue;
 		}
 
 		&:focus ~ label {
-			@apply text-xs text-yellow top-3;
+			@apply text-xs text-beige top-3;
 		}
 
 		&:not(:placeholder-shown, :focus) ~ label {
-			@apply text-xs text-gray top-3;
+			@apply text-xs text-blue top-3;
 		}
 	}
 }
