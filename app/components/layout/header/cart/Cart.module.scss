@@ -1,2 +1,18 @@
-.cart {
+.wrapper-cart {
+	@apply flex items-center;
+
+	.heading {
+		@apply flex gap-2;
+
+		.badge {
+			@apply w-5 h-5 flex items-center justify-center bg-red rounded-full text-white text-sm;
+		}
+
+		.text {
+			@apply uppercase font-semibold text-black tracking-widest;
+		}
+	}
+
+	.cart {
+	}
 }

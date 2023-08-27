@@ -1,31 +1,24 @@
-import { FC } from 'react'
+import { FC, useState } from 'react'
 import styles from './Cart.module.scss'
 import CartItem from './cart-item/CartItem'
-import { ICartItem } from '@/types/cart.interface'
-
-const testItem: ICartItem = {
-	id: 1,
-	product: {
-		id: 1,
-		name: 'cup',
-		description: 'It is cup',
-		price: 123,
-		reviews: [],
-		images: []
-	},
-	quantity: 4
-}
+import { cart } from '@/data/cart.data'
 
 const Cart: FC = () => {
+	const [isOpen, setIsOpen] = useState(false)
+
 	return (
 		<div className={styles['wrapper-cart']}>
-			<div className={styles.heading}>
+			<button className={styles.heading} onClick={() => setIsOpen(!isOpen)}>
 				<span className={styles.badge}>1</span>
 				<span className={styles.text}>my basket</span>
-			</div>
-			<div className={styles.cart}>
-				<CartItem item={testItem} />
-			</div>
+			</button>
+			{isOpen && (
+				<div className={styles.cart}>
+					{cart.map(item => (
+						<CartItem key={item.id} item={item} />
+					))}
+				</div>
+			)}
 		</div>
 	)
 }
