@@ -11,14 +11,14 @@
 	}
 
 	> input {
-		@apply z-10 absolute w-full h-12 bg-transparent border-b-2 outline-none transition-all duration-300;
+		@apply z-10 absolute w-full h-12 bg-transparent border-b-2 outline-none transition-all duration-300 border-blue;
 
 		&:focus {
-			@apply text-beige;
+			@apply text-beige border-beige;
 		}
 
 		&:not(:placeholder-shown, :focus) {
-			@apply text-blue;
+			@apply text-blue border-blue;
 		}
 
 		&:focus ~ label {

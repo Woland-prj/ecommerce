@@ -1,5 +1,5 @@
 .wrapper-cart {
-	@apply flex items-center;
+	@apply flex items-center relative;
 
 	.heading {
 		@apply flex gap-2;
@@ -14,5 +14,7 @@
 	}
 
 	.cart {
+		@apply bg-carmine p-5 absolute right-0 shadow-sm rounded-2xl;
+		top: calc(100% + 1.2rem);
 	}
 }
