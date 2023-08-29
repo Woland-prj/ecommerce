@@ -1,11 +1,11 @@
-import { FC } from 'react'
-import Image from 'next/image'
-import styles from './CartItem.module.scss'
 import { ICartItem } from '@/types/cart.interface'
+import Image from 'next/image'
+import { FC } from 'react'
+import styles from '../Cart.module.scss'
 
 const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 	return (
-		<div className={styles['cart-item']}>
+		<div className={styles.item}>
 			<Image
 				src={item.product.images[0]}
 				alt={item.product.name}

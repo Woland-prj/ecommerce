@@ -1,17 +1,17 @@
+import { cart } from '@/data/cart.data'
+import {
+	Button,
+	Drawer,
+	DrawerBody,
+	DrawerCloseButton,
+	DrawerContent,
+	DrawerFooter,
+	DrawerHeader,
+	DrawerOverlay
+} from '@chakra-ui/react'
 import { FC, useRef, useState } from 'react'
 import styles from './Cart.module.scss'
 import CartItem from './cart-item/CartItem'
-import { cart } from '@/data/cart.data'
-import {
-	Drawer,
-	DrawerBody,
-	DrawerFooter,
-	DrawerHeader,
-	DrawerOverlay,
-	DrawerContent,
-	DrawerCloseButton,
-	Button
-} from '@chakra-ui/react'
 
 const Cart: FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -36,8 +36,7 @@ const Cart: FC = () => {
 				<DrawerOverlay />
 				<DrawerContent>
 					<DrawerCloseButton />
-					<DrawerHeader>Cart</DrawerHeader>
-
+					<DrawerHeader>MY BASKET</DrawerHeader>
 					<DrawerBody>
 						<div className={styles.cart}>
 							{cart.map(item => (

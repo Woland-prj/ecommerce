@@ -12,9 +12,15 @@
 			@apply uppercase font-semibold text-black tracking-widest;
 		}
 	}
+}
 
-	.cart {
-		@apply bg-carmine p-5 absolute right-0 shadow-sm rounded-2xl;
-		top: calc(100% + 1.2rem);
+.cart {
+	.item {
+		@apply mb-4 flex items-center;
+
+		.name {
+		}
+		.price {
+		}
 	}
 }
