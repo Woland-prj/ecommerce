@@ -5,7 +5,7 @@
 		@apply flex gap-2;
 
 		.badge {
-			@apply w-5 h-5 flex items-center justify-center bg-red rounded-full text-white text-sm;
+			@apply w-5 h-5 flex items-center justify-center bg-red rounded-full text-white text-xs;
 		}
 
 		.text {
@@ -16,11 +16,26 @@
 
 .cart {
 	.item {
-		@apply mb-4 flex items-center;
+		@apply mb-4 flex gap-4;
 
 		.name {
+			@apply text-base font-semibold text-black truncate tracking-widest w-40;
 		}
 		.price {
+			@apply text-blue text-sm mt-1 mb-2 block;
 		}
+
+		.cart-actions {
+			@apply flex justify-between w-full;
+		}
+	}
+}
+
+.footer {
+	> span:first-child {
+		@apply text-base text-black mb-1 font-semibold;
+	}
+	> span:last-child {
+		@apply text-blue text-base;
 	}
 }

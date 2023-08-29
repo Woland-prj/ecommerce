@@ -3,18 +3,18 @@ import { IProduct } from '@/types/product.interface'
 export const products: IProduct[] = [
 	{
 		id: 1,
-		name: 'cup',
+		name: 'Cup Umbrella',
 		description: "It's a cup",
 		price: 123,
 		reviews: [],
-		images: ['/images/cup.jpg']
+		images: ['/images/cup.png']
 	},
 	{
 		id: 2,
-		name: 'hoodie',
+		name: 'Hoodie Umbrella',
 		description: "It's a hoodie",
 		price: 456,
 		reviews: [],
-		images: ['/images/hoodie.jpg']
+		images: ['/images/hoodie.png']
 	}
 ]

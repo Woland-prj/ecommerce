@@ -2,6 +2,7 @@ import { ICartItem } from '@/types/cart.interface'
 import Image from 'next/image'
 import { FC } from 'react'
 import styles from '../Cart.module.scss'
+import CartActions from './cart-actions/CartActions'
 
 const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 	return (
@@ -20,6 +21,7 @@ const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 						currency: 'USD'
 					}).format(item.product.price)}
 				</span>
+				<CartActions item={item} />
 			</div>
 		</div>
 	)

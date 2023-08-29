@@ -12,10 +12,12 @@ import {
 import { FC, useRef, useState } from 'react'
 import styles from './Cart.module.scss'
 import CartItem from './cart-item/CartItem'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
 
 const Cart: FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const btnRef = useRef<HTMLButtonElement>(null)
+	const cart = useTypedSelector(state => state.cart.items)
 
 	return (
 		<div className={styles['wrapper-cart']}>
@@ -24,7 +26,7 @@ const Cart: FC = () => {
 				onClick={() => setIsOpen(!isOpen)}
 				ref={btnRef}
 			>
-				<span className={styles.badge}>1</span>
+				<span className={styles.badge}>2</span>
 				<span className={styles.text}>my basket</span>
 			</button>
 			<Drawer
@@ -44,7 +46,11 @@ const Cart: FC = () => {
 							))}
 						</div>
 					</DrawerBody>
-					<DrawerFooter>
+					<DrawerFooter justifyContent={'space-between'}>
+						<div className={styles.footer}>
+							<span>Total: </span>
+							<span>$579</span>
+						</div>
 						<Button colorScheme='red'>Checkout</Button>
 					</DrawerFooter>
 				</DrawerContent>
