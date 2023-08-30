@@ -2,8 +2,6 @@ import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react'
 import { AddIcon, DeleteIcon, MinusIcon } from '@chakra-ui/icons'
 import { FC } from 'react'
 import styles from '../../Cart.module.scss'
-import { useDispatch } from 'react-redux'
-import { cartSlice } from '@/store/slice'
 import { ICartItem } from '@/types/cart.interface'
 import { useActions } from '@/hooks/useActions'
 
@@ -20,16 +18,36 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const dec = getDecrementButtonProps()
 	const input = getInputProps()
 
-	const { removeFromCart } = useActions()
+	const { removeFromCart, changeQuantity } = useActions()
 
 	return (
 		<div className={styles['cart-actions']}>
 			<HStack maxW={'95px'}>
-				<Button {...dec} size={'xs'}>
+				<Button
+					{...dec}
+					size={'xs'}
+					onClick={() => {
+						if (item.quantity > 1)
+							changeQuantity({ id: item.id, type: 'minus' })
+					}}
+				>
 					<MinusIcon></MinusIcon>
 				</Button>
-				<Input {...input} focusBorderColor='#C1121F' size={'xs'} />
-				<Button {...inc} size={'xs'}>
+				<Input
+					{...input}
+					focusBorderColor='#C1121F'
+					size={'xs'}
+					_hover={{ cursor: 'default' }}
+					readOnly
+				/>
+				<Button
+					{...inc}
+					size={'xs'}
+					onClick={() => {
+						if (item.quantity < 99)
+							changeQuantity({ id: item.id, type: 'plus' })
+					}}
+				>
 					<AddIcon></AddIcon>
 				</Button>
 			</HStack>

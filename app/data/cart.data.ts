@@ -3,13 +3,13 @@ import { products } from './products.data'
 
 export const cart: ICartItem[] = [
 	{
-		id: 1,
+		id: 0,
 		product: products[0],
-		quantity: 3
+		quantity: 1
 	},
 	{
-		id: 2,
+		id: 1,
 		product: products[1],
-		quantity: 5
+		quantity: 1
 	}
 ]

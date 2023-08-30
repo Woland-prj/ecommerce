@@ -1,5 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { IAddToCartPayload, IInitialState } from './types'
+import {
+	IAddToCartPayload,
+	IChangeQuantityPayload,
+	IInitialState
+} from './types'
 import { cart } from '@/data/cart.data'
 
 const initialState: IInitialState = {
@@ -16,6 +20,11 @@ export const cartSlice = createSlice({
 		},
 		removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
 			state.items = state.items.filter(item => item.id !== action.payload.id)
+		},
+		changeQuantity: (state, action: PayloadAction<IChangeQuantityPayload>) => {
+			const { id, type } = action.payload
+			const item = state.items.find(item => item.id === id)
+			if (item) type === 'plus' ? item.quantity++ : item.quantity--
 		}
 	}
 })
