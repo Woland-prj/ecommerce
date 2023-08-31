@@ -1,9 +1,9 @@
-import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react'
-import { AddIcon, DeleteIcon, MinusIcon } from '@chakra-ui/icons'
-import { FC } from 'react'
-import styles from '../../Cart.module.scss'
-import { ICartItem } from '@/types/cart.interface'
 import { useActions } from '@/hooks/useActions'
+import { ICartItem } from '@/types/cart.interface'
+import { AddIcon, DeleteIcon, MinusIcon } from '@chakra-ui/icons'
+import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react'
+import { FC, useEffect, useRef } from 'react'
+import styles from '../../Cart.module.scss'
 
 const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
@@ -19,6 +19,11 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const input = getInputProps()
 
 	const { removeFromCart, changeQuantity } = useActions()
+	const quantityInput = useRef(null)
+
+	useEffect(() => {
+		quantityInput.current.value = 
+	}, [item])
 
 	return (
 		<div className={styles['cart-actions']}>
@@ -37,6 +42,7 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 					{...input}
 					focusBorderColor='#C1121F'
 					size={'xs'}
+					ref={}
 					_hover={{ cursor: 'default' }}
 					readOnly
 				/>
