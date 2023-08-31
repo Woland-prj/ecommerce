@@ -1,18 +1,16 @@
 import { FC } from 'react'
 
 import Layout from '@/layout/Layout'
+import Catalog from '@/ui/catalog/Catalog'
+import { products } from '@/data/products.data'
 
 const Home: FC = () => {
 	return (
 		<Layout
 			title='Umbrella Shop'
-			description='123'
-			image='/images/logo.png'
-			type='website'
+			description='The best shop of Umbrella academy in the world'
 		>
-			<div className='flex h-screen w-full items-center justify-center'>
-				<h1 className='text-center text-7xl font-bold text-red'>shop</h1>
-			</div>
+			<Catalog products={products} />
 		</Layout>
 	)
 }

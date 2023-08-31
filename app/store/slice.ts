@@ -4,10 +4,10 @@ import {
 	IChangeQuantityPayload,
 	IInitialState
 } from './types'
-import { cart } from '@/data/cart.data'
+import { testCart } from '@/data/cart.data'
 
 const initialState: IInitialState = {
-	items: cart
+	items: testCart
 }
 
 export const cartSlice = createSlice({

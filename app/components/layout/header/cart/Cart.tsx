@@ -11,26 +11,27 @@ import {
 import { FC, useRef, useState } from 'react'
 import styles from './Cart.module.scss'
 import CartItem from './cart-item/CartItem'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { formatToCurrency } from '@/utils/format-to-currency'
+import { useCart } from '@/hooks/useCart'
+import { useActions } from '@/hooks/useActions'
+
+import { testCart } from '@/data/cart.data'
 
 const Cart: FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const btnRef = useRef<HTMLButtonElement>(null)
 
-	const cart = useTypedSelector(state => state.cart.items)
-
-	const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0)
-	const totalPrice = cart.reduce(
-		(acc, item) => acc + item.product.price * item.quantity,
-		0
-	)
+	const { cart, totalQuantity, totalPrice } = useCart()
+	const { addToCart } = useActions()
 
 	return (
 		<div className={styles['wrapper-cart']}>
 			<button
 				className={styles.heading}
-				onClick={() => setIsOpen(!isOpen)}
+				onClick={() => {
+					setIsOpen(!isOpen)
+					if (!cart.length) testCart.forEach(cartItem => addToCart(cartItem))
+				}}
 				ref={btnRef}
 			>
 				<span className={styles.badge}>{totalQuantity}</span>
@@ -48,9 +49,11 @@ const Cart: FC = () => {
 					<DrawerHeader>MY BASKET</DrawerHeader>
 					<DrawerBody>
 						<div className={styles.cart}>
-							{cart.map(item => (
-								<CartItem key={item.id} item={item} />
-							))}
+							{cart.length ? (
+								cart.map(item => <CartItem key={item.id} item={item} />)
+							) : (
+								<div>Basket is empty</div>
+							)}
 						</div>
 					</DrawerBody>
 					<DrawerFooter justifyContent={'space-between'}>

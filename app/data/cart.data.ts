@@ -1,7 +1,7 @@
 import { ICartItem } from '@/types/cart.interface'
 import { products } from './products.data'
 
-export const cart: ICartItem[] = [
+export const testCart: ICartItem[] = [
 	{
 		id: 0,
 		product: products[0],

@@ -2,16 +2,15 @@ import { useActions } from '@/hooks/useActions'
 import { ICartItem } from '@/types/cart.interface'
 import { AddIcon, DeleteIcon, MinusIcon } from '@chakra-ui/icons'
 import { Button, HStack, Input, useNumberInput } from '@chakra-ui/react'
-import { FC, useEffect, useRef } from 'react'
+import { FC } from 'react'
 import styles from '../../Cart.module.scss'
+import { useCart } from '@/hooks/useCart'
 
 const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const { getInputProps, getIncrementButtonProps, getDecrementButtonProps } =
 		useNumberInput({
 			step: 1,
-			defaultValue: 1,
-			min: 1,
-			max: 99
+			defaultValue: 1
 		})
 
 	const inc = getIncrementButtonProps()
@@ -19,11 +18,11 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const input = getInputProps()
 
 	const { removeFromCart, changeQuantity } = useActions()
-	const quantityInput = useRef(null)
 
-	useEffect(() => {
-		quantityInput.current.value = 
-	}, [item])
+	const { cart } = useCart()
+	const quantity = cart.find(cartItem => cartItem.id === item.id)?.quantity
+
+	console.log(quantity)
 
 	return (
 		<div className={styles['cart-actions']}>
@@ -31,10 +30,8 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 				<Button
 					{...dec}
 					size={'xs'}
-					onClick={() => {
-						if (item.quantity > 1)
-							changeQuantity({ id: item.id, type: 'minus' })
-					}}
+					onClick={() => changeQuantity({ id: item.id, type: 'minus' })}
+					isDisabled={quantity === 1}
 				>
 					<MinusIcon></MinusIcon>
 				</Button>
@@ -42,17 +39,15 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 					{...input}
 					focusBorderColor='#C1121F'
 					size={'xs'}
-					ref={}
 					_hover={{ cursor: 'default' }}
+					value={quantity}
 					readOnly
 				/>
 				<Button
 					{...inc}
 					size={'xs'}
-					onClick={() => {
-						if (item.quantity < 99)
-							changeQuantity({ id: item.id, type: 'plus' })
-					}}
+					onClick={() => changeQuantity({ id: item.id, type: 'plus' })}
+					isDisabled={quantity === 99}
 				>
 					<AddIcon></AddIcon>
 				</Button>

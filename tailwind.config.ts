@@ -42,7 +42,7 @@ const config: Config = {
 			}
 		},
 		fontFamily: {
-			main: ['Roboto', 'sans-serif']
+			main: ['Noto Sans', 'sans-serif']
 		}
 	},
 	plugins: []

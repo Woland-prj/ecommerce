@@ -1,0 +1,40 @@
+.carousel {
+	@apply grid grid-cols-4 gap-8 mt-72;
+}
+
+.item {
+	@apply bg-blue rounded-3xl p-5 pt-0 mb-5;
+
+	&.active {
+		@apply bg-dark-blue shadow-2xl shadow-dark-blue scale-110 p-7 bg-contain bg-no-repeat;
+		background-image: url('/images/pattern.png');
+		background-position: center -50px;
+
+		.heading {
+			@apply text-beige text-3xl leading-10;
+		}
+
+		.image {
+			@apply m-auto -mt-24;
+		}
+	}
+
+	.heading {
+		@apply text-xl text-dark-blue font-extrabold leading-8 mt-4;
+
+		> div {
+			display: -webkit-box;
+			-webkit-line-clamp: 2;
+			-webkit-box-orient: vertical;
+			overflow: hidden;
+		}
+	}
+
+	.description {
+		@apply mt-0 text-base text-dark-blue opacity-70;
+	}
+
+	.image {
+		@apply m-auto -mt-12;
+	}
+}

@@ -3,6 +3,7 @@
 		@apply bg-white py-8 px-10 font-main relative;
 
 		> .content {
+			@apply relative max-w-7xl m-auto;
 		}
 	}
 }

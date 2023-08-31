@@ -10,7 +10,11 @@ export const menu: IMenuLink[] = [
 		link: '/hoodies'
 	},
 	{
-		name: 'Menu',
-		link: '/menu'
+		name: 'Funko',
+		link: '/funko'
+	},
+	{
+		name: 'Comics',
+		link: '/comics'
 	}
 ]

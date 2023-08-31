@@ -2,10 +2,10 @@
 	@apply flex items-center relative;
 
 	.heading {
-		@apply flex gap-2;
+		@apply flex gap-2 items-center justify-between;
 
 		.badge {
-			@apply w-5 h-5 flex items-center justify-center bg-red rounded-full text-white text-xs;
+			@apply w-6 h-6 flex items-center justify-center bg-red rounded-full text-white text-xs;
 		}
 
 		.text {

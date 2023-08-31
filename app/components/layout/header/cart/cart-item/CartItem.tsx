@@ -1,6 +1,6 @@
 import { ICartItem } from '@/types/cart.interface'
 import Image from 'next/image'
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import styles from '../Cart.module.scss'
 import CartActions from './cart-actions/CartActions'
 import { formatToCurrency } from '@/utils/format-to-currency'

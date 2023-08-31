@@ -4,14 +4,17 @@ import type { AppProps } from 'next/app'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from '@/ui/chakra.config'
 import '@/assets/globals.scss'
-import { store } from '@/store/store'
+import { persistor, store } from '@/store/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
 	return (
 		<Provider store={store}>
-			<ChakraProvider theme={theme}>
-				<Component {...pageProps} />
-			</ChakraProvider>
+			<PersistGate loading={null} persistor={persistor}>
+				<ChakraProvider theme={theme}>
+					<Component {...pageProps} />
+				</ChakraProvider>
+			</PersistGate>
 		</Provider>
 	)
 }
