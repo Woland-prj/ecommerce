@@ -22,8 +22,6 @@ const CartActions: FC<{ item: ICartItem }> = ({ item }) => {
 	const { cart } = useCart()
 	const quantity = cart.find(cartItem => cartItem.id === item.id)?.quantity
 
-	console.log(quantity)
-
 	return (
 		<div className={styles['cart-actions']}>
 			<HStack maxW={'95px'}>

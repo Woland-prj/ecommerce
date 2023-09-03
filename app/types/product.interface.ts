@@ -1,9 +1,11 @@
+import { IProductVariation } from './productVariation.interface'
+
 export interface IProduct {
 	id: number
 	name: string
 	description: string
-	price: number
+	variationTitle: string
+	variations: IProductVariation[]
 	// TODO: review interface
 	reviews: []
-	images: string[]
 }

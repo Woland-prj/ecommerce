@@ -5,7 +5,7 @@ export const useCart = () => {
 
 	const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0)
 	const totalPrice = cart.reduce(
-		(acc, item) => acc + item.product.price * item.quantity,
+		(acc, item) => acc + item.variation.price * item.quantity,
 		0
 	)
 

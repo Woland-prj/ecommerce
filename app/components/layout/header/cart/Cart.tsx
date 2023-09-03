@@ -11,18 +11,15 @@ import {
 import { FC, useRef, useState } from 'react'
 import styles from './Cart.module.scss'
 import CartItem from './cart-item/CartItem'
+import cn from 'clsx'
 import { formatToCurrency } from '@/utils/format-to-currency'
 import { useCart } from '@/hooks/useCart'
-import { useActions } from '@/hooks/useActions'
-
-import { testCart } from '@/data/cart.data'
 
 const Cart: FC = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const btnRef = useRef<HTMLButtonElement>(null)
 
 	const { cart, totalQuantity, totalPrice } = useCart()
-	const { addToCart } = useActions()
 
 	return (
 		<div className={styles['wrapper-cart']}>
@@ -30,11 +27,12 @@ const Cart: FC = () => {
 				className={styles.heading}
 				onClick={() => {
 					setIsOpen(!isOpen)
-					if (!cart.length) testCart.forEach(cartItem => addToCart(cartItem))
 				}}
 				ref={btnRef}
 			>
-				<span className={styles.badge}>{totalQuantity}</span>
+				<span className={cn(styles.badge, { invisible: totalQuantity === 0 })}>
+					{totalQuantity}
+				</span>
 				<span className={styles.text}>my basket</span>
 			</button>
 			<Drawer
@@ -61,7 +59,7 @@ const Cart: FC = () => {
 							<span>Total: </span>
 							<span>{formatToCurrency(totalPrice)}</span>
 						</div>
-						<Button colorScheme='red'>Checkout</Button>
+						<Button colorScheme='carmine'>Checkout</Button>
 					</DrawerFooter>
 				</DrawerContent>
 			</Drawer>

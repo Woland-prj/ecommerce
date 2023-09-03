@@ -1,12 +1,12 @@
 .carousel {
-	@apply grid grid-cols-4 gap-8 mt-72;
+	@apply grid grid-cols-4 gap-8 mt-72 font-main;
 }
 
 .item {
 	@apply bg-blue rounded-3xl p-5 pt-0 mb-5;
 
 	&.active {
-		@apply bg-dark-blue shadow-2xl shadow-dark-blue scale-110 p-7 bg-contain bg-no-repeat;
+		@apply bg-dark-blue shadow-2xl shadow-dark-blue scale-[1.15] p-7 bg-contain bg-no-repeat;
 		background-image: url('/images/pattern.png');
 		background-position: center -50px;
 
@@ -17,10 +17,30 @@
 		.image {
 			@apply m-auto -mt-24;
 		}
+
+		.button {
+			@apply tracking-widest uppercase rounded-full font-normal text-xs;
+		}
+
+		.variations {
+			.heading {
+				@apply text-beige capitalize mb-2 text-base;
+			}
+			.buttons {
+				@apply flex gap-2 mb-7 flex-wrap;
+				> button {
+					@apply transition-all text-[0.75rem] font-semibold uppercase py-1 px-1.5 bg-blue rounded-lg text-dark-blue hover:opacity-70 duration-300;
+
+					&.active {
+						@apply text-red bg-beige;
+					}
+				}
+			}
+		}
 	}
 
 	.heading {
-		@apply text-xl text-dark-blue font-extrabold leading-8 mt-4;
+		@apply text-xl text-dark-blue font-extrabold leading-8 mt-4 mb-6;
 
 		> div {
 			display: -webkit-box;

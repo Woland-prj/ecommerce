@@ -9,16 +9,21 @@ const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
 	return (
 		<div className={styles.item}>
 			<Image
-				src={item.product.images[0]}
-				alt={item.product.name}
+				src={item.variation.images[0]}
+				alt={item.variation.name}
 				width={100}
 				height={100}
 			></Image>
 			<div>
 				<h3 className={styles.name}>{item.product.name}</h3>
-				<span className={styles.price}>
-					{formatToCurrency(item.product.price)}
-				</span>
+				<div className={styles.info}>
+					<span className={styles.price}>
+						{formatToCurrency(item.variation.price)}
+					</span>
+					<span>
+						{item.product.variationTitle}: {item.variation.name}
+					</span>
+				</div>
 				<CartActions item={item} />
 			</div>
 		</div>
