@@ -15,10 +15,10 @@
 		}
 
 		.head {
-			@apply flex justify-between;
+			@apply -ml-5;
 
 			.image {
-				@apply m-auto scale-90 -mt-24;
+				@apply m-auto -mt-24;
 			}
 		}
 

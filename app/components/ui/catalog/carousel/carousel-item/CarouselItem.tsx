@@ -1,12 +1,13 @@
 import { IProduct } from '@/types/product.interface'
+import { IProductVariation } from '@/types/productVariation.interface'
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
+import { HStack } from '@chakra-ui/react'
+import cn from 'clsx'
 import Image from 'next/image'
 import { Dispatch, FC, SetStateAction, useState } from 'react'
-import cn from 'clsx'
 import styles from '../Carousel.module.scss'
 import CarouselButton from './carousel-button/CarouselButton'
 import CarouselVariations from './carousel-variations/CarouselVariations'
-import { IProductVariation } from '@/types/productVariation.interface'
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons'
 
 interface ICarouselItem {
 	product: IProduct
@@ -25,17 +26,22 @@ const CarouselItem: FC<ICarouselItem> = ({
 	const isActive = product.id === selectedItemId
 
 	return (
-		<div className={cn(styles.item, { [styles.active]: isActive })}>
+		<div
+			className={cn(styles.item, { [styles.active]: isActive })}
+			onClick={() => setSelectedItemId(product.id)}
+		>
 			<div className={styles.head}>
-				{isActive && <ChevronLeftIcon color='brand.500' />}
-				<Image
-					alt={selectedVariation.name}
-					src={selectedVariation.images[0]}
-					width={200}
-					height={200}
-					className={styles.image}
-				/>
-				{isActive && <ChevronRightIcon color='brand.500' />}
+				<HStack spacing={0}>
+					{isActive && <ChevronLeftIcon color='brand.500' boxSize={10} />}
+					<Image
+						alt={selectedVariation.name}
+						src={selectedVariation.images[0]}
+						width={200}
+						height={200}
+						className={styles.image}
+					/>
+					{isActive && <ChevronRightIcon color='brand.500' boxSize={10} />}
+				</HStack>
 			</div>
 			<div className={styles.heading}>
 				<div>{product.name}</div>
