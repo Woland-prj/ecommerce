@@ -21,8 +21,13 @@
 		.name {
 			@apply text-base font-semibold text-black truncate tracking-widest w-40;
 		}
-		.price {
-			@apply text-blue text-sm mt-1 mb-2 block;
+
+		.info {
+			@apply flex justify-start gap-2 text-sm mt-1 mb-2;
+
+			.price {
+				@apply text-blue;
+			}
 		}
 
 		.cart-actions {
